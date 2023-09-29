@@ -47,6 +47,7 @@ class Alphabet extends FlxSpriteGroup
 	var isBold:Bool = false;
 	public var lettersArray:Array<AlphaCharacter> = [];
 
+	public var startPosition:FlxPoint = new FlxPoint(0, 0); 
 	public var finishedText:Bool = false;
 	public var typed:Bool = false;
 
