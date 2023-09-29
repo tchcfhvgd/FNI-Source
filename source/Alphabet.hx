@@ -556,14 +556,6 @@ class AlphaCharacter extends FlxSprite
 		y = (110 - height);
 		y += row * 60;
 		
-		public function updateLetterOffset()
-	{
-		if (animation.curAnim == null) return;
-
-		if(!animation.curAnim.name.endsWith('bold'))
-		{
-			offset.y += -(110 - height);
-		}
 		switch (letter)
 		{
 			case "'":
@@ -571,6 +563,15 @@ class AlphaCharacter extends FlxSprite
 			case '-':
 				//x -= 35 - (90 * (1.0 - textSize));
 				y -= 16;
+		}
+	
+	public function updateLetterOffset()
+	{
+		if (animation.curAnim == null) return;
+
+		if(!animation.curAnim.name.endsWith('bold'))
+		{
+			offset.y += -(110 - height);
 		}
 	}
 }
