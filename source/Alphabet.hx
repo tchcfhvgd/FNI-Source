@@ -555,6 +555,15 @@ class AlphaCharacter extends FlxSprite
 
 		y = (110 - height);
 		y += row * 60;
+		
+		public function updateLetterOffset()
+	{
+		if (animation.curAnim == null) return;
+
+		if(!animation.curAnim.name.endsWith('bold'))
+		{
+			offset.y += -(110 - height);
+		}
 		switch (letter)
 		{
 			case "'":
