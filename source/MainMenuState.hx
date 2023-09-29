@@ -377,7 +377,7 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										//FlxG.camera.fade(0xFFfd719b, 1.6, false);
-										MusicBeatState.switchState(new OptionsState());
+										MusicBeatState.switchState(new options.OptionsState());
 								}
 							});
 						}
