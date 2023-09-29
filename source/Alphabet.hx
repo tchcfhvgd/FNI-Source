@@ -565,6 +565,7 @@ class AlphaCharacter extends FlxSprite
 				y -= 16;
 		}
 	
+	}
 	public function updateLetterOffset()
 	{
 		if (animation.curAnim == null) return;
