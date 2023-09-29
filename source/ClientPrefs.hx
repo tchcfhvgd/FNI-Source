@@ -27,8 +27,14 @@ class ClientPrefs {
 
 	//Every key has two binds, these binds are defined on defaultKeys! If you want your control to be changeable, you have to add it on ControlsSubState (inside OptionsState.hx)'s list
 	public static var keyBinds:Map<String, Dynamic> = new Map<String, Dynamic>();
-	public static var defaultKeys:Map<String, Dynamic>;
 
+	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
+
+	public static function loadDefaultKeys() {
+		defaultKeys = keyBinds.copy();
+		//trace(defaultKeys);
+	}
+	
 	public static function startControls() {
 		//Key Bind, Name for ControlsSubState
 		keyBinds.set('note_left', [A, LEFT]);
@@ -45,11 +51,6 @@ class ClientPrefs {
 		keyBinds.set('back', [BACKSPACE, ESCAPE]);
 		keyBinds.set('pause', [ENTER, ESCAPE]);
 		keyBinds.set('reset', [R, NONE]);
-
-
-		// Don't delete this
-		defaultKeys = keyBinds.copy();
-	}
 
 	public static function saveSettings() {
 		FlxG.save.data.downScroll = downScroll;
