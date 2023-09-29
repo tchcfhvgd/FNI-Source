@@ -24,6 +24,7 @@ class Alphabet extends FlxSpriteGroup
 	public var forceX:Float = Math.NEGATIVE_INFINITY;
 	public var targetY:Float = 0;
 	public var yMult:Float = 120;
+	public var changeX:Bool = true;
 	public var scaleX(default, set):Float = 1;
 	public var scaleY(default, set):Float = 1;
 	public var rows:Int = 0;
@@ -399,7 +400,11 @@ class Alphabet extends FlxSpriteGroup
 
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 9.6, 0, 1);
 			y = FlxMath.lerp(y, (scaledY * yMult) + (FlxG.height * 0.48) + yAdd, lerpVal);
-			if(forceX != Math.NEGATIVE_INFINITY) {
+			if(changeX)
+				x = FlxMath.lerp(x, (targetY * distancePerItem.x) + startPosition.x, lerpVal);
+			if(changeY)
+				y = FlxMath.lerp(y, (targetY * 1.3 * distancePerItem.y) + startPosition.y, lerpVal);
+                        if(forceX != Math.NEGATIVE_INFINITY) {
 				x = forceX;
 			} else {
 				x = FlxMath.lerp(x, (targetY * 20) + 90 + xAdd, lerpVal);
