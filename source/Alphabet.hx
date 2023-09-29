@@ -424,6 +424,9 @@ class AlphaCharacter extends FlxSprite
 
 	public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?";
 
+	public var spawnPos:FlxPoint = new FlxPoint();
+	public var spawnScale:FlxPoint = new FlxPoint();
+	
 	public var row:Int = 0;
 
 	private var textSize:Float = 1;
