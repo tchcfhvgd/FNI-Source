@@ -19,9 +19,12 @@ class Alphabet extends FlxSpriteGroup
 	public var paused:Bool = false;
 
 	// for menu shit
+	public var letters:Array<AlphaCharacter> = [];
 	public var forceX:Float = Math.NEGATIVE_INFINITY;
 	public var targetY:Float = 0;
 	public var yMult:Float = 120;
+	public var scaleX(default, set):Float = 1;
+	public var scaleY(default, set):Float = 1;
 	public var xAdd:Float = 0;
 	public var yAdd:Float = 0;
 	public var isMenuItem:Bool = false;
@@ -110,6 +113,62 @@ class Alphabet extends FlxSpriteGroup
 		x = lastX;
 	}
 
+	public function clearLetters()
+	{
+		var i:Int = letters.length;
+		while (i > 0)
+		{
+			--i;
+			var letter:AlphaCharacter = letters[i];
+			if(letter != null)
+			{
+				letter.kill();
+				letters.remove(letter);
+				letter.destroy();
+			}
+		}
+		letters = [];
+		rows = 0;
+	}
+	
+	private function set_scaleX(value:Float)
+	{
+		if (value == scaleX) return value;
+
+		scale.x = value;
+		for (letter in letters)
+		{
+			if(letter != null)
+			{
+				letter.updateHitbox();
+				//letter.updateLetterOffset();
+				var ratio:Float = (value / letter.spawnScale.x);
+				letter.x = letter.spawnPos.x * ratio;
+			}
+		}
+		scaleX = value;
+		return value;
+	}
+
+	private function set_scaleY(value:Float)
+	{
+		if (value == scaleY) return value;
+
+		scale.y = value;
+		for (letter in letters)
+		{
+			if(letter != null)
+			{
+				letter.updateHitbox();
+				letter.updateLetterOffset();
+				var ratio:Float = (value / letter.spawnScale.y);
+				letter.y = letter.spawnPos.y * ratio;
+			}
+		}
+		scaleY = value;
+		return value;
+	}
+	
 	public function addText()
 	{
 		doSplitWords();
