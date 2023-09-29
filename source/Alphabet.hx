@@ -50,6 +50,7 @@ class Alphabet extends FlxSpriteGroup
 
 	public var startPosition:FlxPoint = new FlxPoint(0, 0); 
 	public var finishedText:Bool = false;
+	public var distancePerItem:FlxPoint = new FlxPoint(20, 120);
 	public var typed:Bool = false;
 
 	public var typingSpeed:Float = 0.05;
@@ -402,8 +403,7 @@ class Alphabet extends FlxSpriteGroup
 			y = FlxMath.lerp(y, (scaledY * yMult) + (FlxG.height * 0.48) + yAdd, lerpVal);
 			if(changeX)
 				x = FlxMath.lerp(x, (targetY * distancePerItem.x) + startPosition.x, lerpVal);
-			if(changeY)
-				y = FlxMath.lerp(y, (targetY * 1.3 * distancePerItem.y) + startPosition.y, lerpVal);
+			
                         if(forceX != Math.NEGATIVE_INFINITY) {
 				x = forceX;
 			} else {
