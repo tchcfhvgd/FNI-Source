@@ -24,6 +24,7 @@ class ClientPrefs {
         public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
+	public static var hitsoundVolume:Float = 0;
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
 
@@ -78,6 +79,7 @@ class ClientPrefs {
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
+		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.hideTime = hideTime;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
@@ -146,6 +148,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.noteOffset != null) {
 			noteOffset = FlxG.save.data.noteOffset;
+		}
+		if(FlxG.save.data.hitsoundVolume != null) {
+			hitsoundVolume = FlxG.save.data.hitsoundVolume;
 		}
 		if(FlxG.save.data.arrowHSV != null) {
 			arrowHSV = FlxG.save.data.arrowHSV;
