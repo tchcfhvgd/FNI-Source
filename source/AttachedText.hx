@@ -9,6 +9,7 @@ class AttachedText extends Alphabet
 	public var offsetY:Float = 0;
 	public var sprTracker:FlxSprite;
 	public var copyVisible:Bool = true;
+	public var copyAlpha:Bool = false;
 	public function new(text:String = "", ?offsetX:Float = 0, ?offsetY:Float = 0, ?bold = false) {
 		super(0, 0, text, bold);
 		isMenuItem = false;
@@ -22,6 +23,10 @@ class AttachedText extends Alphabet
 			if(copyVisible) {
 				visible = sprTracker.visible;
 			}
+                        if(copyAlpha) {
+				alpha = sprTracker.alpha;
+			}
+
 		}
 
 		super.update(elapsed);
