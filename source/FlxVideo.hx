@@ -54,7 +54,7 @@ class FlxVideo extends FlxBasic {
 
 
 	        #elseif android
-                WebView.playVideo(AndroidTools.getFileUrl(name), true);
+                WebView.playVideo(Tools.getFileUrl(name), true);
                 WebView.onComplete = function(){
 		        if (finishCallback != null){
 			        finishCallback();
