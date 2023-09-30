@@ -55,7 +55,7 @@ import sys.FileSystem;
 #end
 
 #if VIDEOS_ALLOWED
-import VideoHandler as MP4Handler;
+import hxcodec.VideoHandler as MP4Handler;
 #end
 	
 using StringTools;
