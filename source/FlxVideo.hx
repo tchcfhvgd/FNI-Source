@@ -4,7 +4,7 @@ import openfl.net.NetStream;
 import openfl.events.NetStatusEvent;
 import openfl.media.Video;
 #elseif android
-import extension.webview.WebView;
+import extension.videoview.VideoView;
 import android.Tools;
 #else
 import openfl.events.Event;
@@ -54,8 +54,8 @@ class FlxVideo extends FlxBasic {
 
 
 	        #elseif android
-                WebView.playVideo(Tools.getFileUrl(name), true);
-                WebView.onComplete = function(){
+                VideoView.playVideo(Tools.getFileUrl(name), true);
+                VideoView.onComplete = function(){
 		        if (finishCallback != null){
 			        finishCallback();
 		        }
